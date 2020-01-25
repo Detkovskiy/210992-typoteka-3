@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require(`fs`);
+const moment = require('moment');
 const {
   getRandomInt,
   shuffle,
@@ -64,7 +65,7 @@ const generateOffers = (count) => (
     title: TITLES[getRandomInt(0, TITLES.length - 1)],
     announce: shuffle(FULLTEXT).slice(1, 5).join(` `),
     fullText: shuffle(FULLTEXT).slice(1, getRandomInt(0, FULLTEXT.length - 1)).join(` `),
-
+    createdDate: moment().subtract(getRandomInt(1, 30), 'days').subtract(getRandomInt(0, 2), 'months').format('YYYY-MM-DD hh:mm:ss'),
     category: shuffle(CATEGORIES).slice(0, getRandomInt(1, 4)),
   }))
 );
