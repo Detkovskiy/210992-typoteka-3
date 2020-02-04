@@ -14,3 +14,5 @@ module.exports.shuffle = (someArray) => {
 
   return someArray;
 };
+
+module.exports.chalk = require(`chalk`);
